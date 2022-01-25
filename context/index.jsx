@@ -12,8 +12,13 @@ export default function JokeProvider({ children }) {
   )
 }
 
-export function useJoke() {
+export function useJoke(initialJoke) {
   const context = useContext(JokeContext)
+
+  // only set joke if context.joke is undefined
+  if (initialJoke && context.joke === undefined) {
+    context.joke = initialJoke
+  }
 
   return context
 }

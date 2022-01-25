@@ -1,13 +1,7 @@
-import { useEffect } from "react"
 import { withJoke, useJoke } from "../context"
 
 const MyApp = withJoke(({ Component, pageProps, data }) => {
-  const { setJoke } = useJoke()
-
-  useEffect(() => {
-    setJoke(data)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  useJoke(data)
 
   return <Component {...pageProps} />
 })
